@@ -153,6 +153,13 @@
   <ItemGroup>
     <None Include="..\Meta\contributors.json" />
     <None Include="..\Meta\libraries.json" />
+    <None Include="..\Pub_ts\package.json" />
+    <CustomBuild Include="..\Pub_ts\shared\*.ts">
+      <FileType>Document</FileType>
+      <Command>tsc "%(FullPath)" --outDir "$(ProjectDir)../-gen_js/" --lib "ES2015"</Command>
+      <Outputs>$(ProjectDir)../-gen_js/%(Filename).js</Outputs>
+      <Message>Building %(Filename)</Message>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Meta\licence_name.txt" />

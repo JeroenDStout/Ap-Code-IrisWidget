@@ -15,6 +15,9 @@
     <None Include="..\Meta\libraries.json">
       <Filter>Meta</Filter>
     </None>
+    <None Include="..\Pub_ts\package.json">
+      <Filter>Meta</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Meta">
@@ -28,6 +31,7 @@
     <CustomBuild Include="..\Meta\generate_meta.txt">
       <Filter>Meta</Filter>
     </CustomBuild>
+    <CustomBuild Include="..\Pub_ts\shared\widget.ts" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Meta\licence_name.txt">
