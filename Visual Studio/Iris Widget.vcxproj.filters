@@ -31,7 +31,7 @@
     <CustomBuild Include="..\Meta\generate_meta.txt">
       <Filter>Meta</Filter>
     </CustomBuild>
-    <CustomBuild Include="..\Pub_ts\shared\widget.ts" />
+    <CustomBuild Include="..\Pub_ts\shared\*.ts" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Meta\licence_name.txt">
