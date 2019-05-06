@@ -12,7 +12,6 @@ namespace IrisWidget {
 		
 		BR_VERSION_DEFINE(IrisWidget);
         BR_CONTRIBUTE_DEFINE(IrisWidget);
-        BR_PROJECT_DEFINE(IrisWidget);
 
 	}
 } 
