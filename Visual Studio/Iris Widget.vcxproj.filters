@@ -7,6 +7,9 @@
     <ClInclude Include="..\Pubc\Register.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\Pubc\Widget Supplier.h">
+      <Filter>Supplier</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Meta\contributors.json">
@@ -18,6 +21,9 @@
     <None Include="..\Pub_ts\package.json">
       <Filter>Meta</Filter>
     </None>
+    <None Include="..\Pub_ts\Shared\Widget Interfaces.ts">
+      <Filter>Widget Shared</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Meta">
@@ -26,12 +32,23 @@
     <Filter Include="Core">
       <UniqueIdentifier>{ee8256a8-4eda-42a0-825e-5d369a9bedf4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Supplier">
+      <UniqueIdentifier>{bf2c08e9-c7e6-4ddc-864a-5a779f45315d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Widget Shared">
+      <UniqueIdentifier>{cc7e7fe6-209d-4d6a-afb3-678b5c8a1987}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Widgets">
+      <UniqueIdentifier>{dbd16bb5-25c4-4e1f-86a8-420f80005e41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\Meta\generate_meta.txt">
       <Filter>Meta</Filter>
     </CustomBuild>
-    <CustomBuild Include="..\Pub_ts\shared\*.ts" />
+    <CustomBuild Include="..\Pub_ts\Widgets\Browser.tsx">
+      <Filter>Widgets</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Meta\licence_name.txt">
@@ -41,6 +58,9 @@
   <ItemGroup>
     <ClCompile Include="..\Pubc\Version.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Pubc\Widget Supplier.cpp">
+      <Filter>Supplier</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="15.0">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -56,7 +55,7 @@
   <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
     <Import Project="..\..\Visual Studio\Shared Common Properties.props" />
     <Import Project="..\..\Visual Studio\Shared Path Properties.props" />
   </ImportGroup>
@@ -140,9 +139,11 @@
   <ItemGroup>
     <ClInclude Include="..\Pubc\Version.h" />
     <ClInclude Include="..\Pubc\Register.h" />
+    <ClInclude Include="..\Pubc\Widget Supplier.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Pubc\Version.cpp" />
+    <ClCompile Include="..\Pubc\Widget Supplier.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\Meta\generate_meta.txt">
@@ -158,12 +159,11 @@
     <None Include="..\Meta\contributors.json" />
     <None Include="..\Meta\libraries.json" />
     <None Include="..\Pub_ts\package.json" />
-    <CustomBuild Include="..\Pub_ts\shared\*.ts">
-      <FileType>Document</FileType>
-      <Command>tsc "%(FullPath)" --outDir "$(ProjectDir)../-gen_js/" --lib "ES2015"</Command>
-      <Outputs>$(ProjectDir)../-gen_js/%(Filename).js</Outputs>
-      <Message>Building %(Filename)</Message>
-    </CustomBuild>
+    <CustomBuild Include="..\Pub_ts\Widgets\Browser.tsx"><FileType>Document</FileType>
+        <Command>"$(ProjectDir)../Meta/compile_widget.py" "%(FullPath)" "$(ProjectDir)../-gen_js/widgets"</Command>
+        <Outputs>$(ProjectDir)../-gen_js/widgets/%(Filename).js</Outputs>
+        <Message>Building %(Filename)</Message>
+    </CustomBuild><None Include="..\Pub_ts\Shared\Widget Interfaces.ts" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Meta\licence_name.txt" />

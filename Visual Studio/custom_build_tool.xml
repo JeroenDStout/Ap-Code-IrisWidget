@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomBuildTool>
+    <ForPrefix path="..\Pub_ts\Widgets\">
+        <FileType>Document</FileType>
+        <Command>"$(ProjectDir)../Meta/compile_widget.py" "%(FullPath)" "$(ProjectDir)../-gen_js/widgets"</Command>
+        <Outputs>$(ProjectDir)../-gen_js/widgets/%(Filename).js</Outputs>
+        <Message>Building %(Filename)</Message>
+    </ForPrefix>
+</CustomBuildTool>
