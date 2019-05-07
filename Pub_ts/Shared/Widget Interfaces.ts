@@ -21,11 +21,19 @@ export interface IWidgetFrameData {
 
     request_updates(obj:any): void;
     remove_updates(obj:any): void;
+
+    create_socket_send_with_msg(): ISocketSendInstr;
+    send_socket(instr:ISocketSendInstr): void;
 }
 
-export interface IMessage {
-    Recipient_ID: string;
-    Reply_To_Me_ID: string;
-    Opened_Conduit_ID: string;
-    Flags: number;
+export interface ISocketSendInstr {
+    host_name: string;
+    message: any;
+    on_success(msg: any): void;
+    on_failure(msg: any): void;
+}
+
+export interface ISocketResponseHandler {
+    on_success(msg: any): void;
+    on_failure(msg: any): void;
 }
