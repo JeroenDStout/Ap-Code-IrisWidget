@@ -12,6 +12,16 @@ export interface IWidgetCollection {
     get_all_loaded(): boolean;
 }
 
+export interface IPostProps {
+    receive_time: Date;
+    latency: number;
+    emitter_title: string;
+    re_user_action: string;
+    generic_is_ok: any;
+    generic_body: any;
+    data_list: Array<any>;
+}
+
 export interface IWidgetFrameData {
     Widget_Collection: IWidgetCollection;
     Connexion: string;
@@ -21,6 +31,9 @@ export interface IWidgetFrameData {
 
     request_updates(obj:any): void;
     remove_updates(obj:any): void;
+
+    create_post_props(): IPostProps;
+    emit_post(props:IPostProps): void;
 
     create_socket_send_with_msg(): ISocketSendInstr;
     send_socket(instr:ISocketSendInstr): void;
