@@ -75,8 +75,8 @@
     </ClCompile>
     <PreBuildEvent />
     <PreBuildEvent>
-      <Command>cd ../meta
-../../BlackRoot/meta/create_repo_version.bat "$(ProjectName)"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -90,8 +90,8 @@
     </ClCompile>
     <PreBuildEvent />
     <PreBuildEvent>
-      <Command>cd ../meta
-../../BlackRoot/meta/create_repo_version.bat "$(ProjectName)"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,8 +111,8 @@
     </Link>
     <PreBuildEvent />
     <PreBuildEvent>
-      <Command>cd ../meta
-../../BlackRoot/meta/create_repo_version.bat "$(ProjectName)"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,8 +132,8 @@
     </Link>
     <PreBuildEvent />
     <PreBuildEvent>
-      <Command>cd ../meta
-../../BlackRoot/meta/create_repo_version.bat "$(ProjectName)"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -146,29 +146,28 @@
     <ClCompile Include="..\Pubc\Widget Supplier.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\Meta\generate_meta.txt">
-      <FileType>Document</FileType>
-      <Message>Generating meta</Message>
-      <Command>python "$(SolutionDir)../BlackRoot/Meta/generate_meta.py" "$(ProjectName)" "$(ProjectDir)../Meta" "$(ProjectDir)../-genc"</Command>
-      <Outputs>$(ProjectDir)..\-genc\def_contribute.h</Outputs>
-      <AdditionalInputs>$(ProjectDir)..\meta\contributors.json;$(ProjectDir)..\meta\libraries.json</AdditionalInputs>
-      <BuildInParallel>true</BuildInParallel>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\Meta\contributors.json" />
     <None Include="..\Meta\libraries.json" />
     <None Include="..\Pub_ts\package.json" />
-    <CustomBuild Include="..\Pub_ts\Widgets\Browser.tsx"><FileType>Document</FileType>
-        <Command>"$(ProjectDir)../Meta/compile_widget.py" "%(FullPath)" "$(ProjectDir)../-gen_js/widgets"</Command>
-        <Outputs>$(ProjectDir)../-gen_js/widgets/%(Filename).js</Outputs>
-        <Message>Building %(Filename)</Message>
-    </CustomBuild><None Include="..\Pub_ts\Shared\Widget Interfaces.ts" />
+    <CustomBuild Include="..\Pub_ts\Widgets\Browser.tsx">
+      <FileType>Document</FileType>
+      <Command>"$(ProjectDir)../Meta/compile_widget.py" "%(FullPath)" "$(ProjectDir)../-gen_js/widgets"</Command>
+      <Outputs>$(ProjectDir)../-gen_js/widgets/%(Filename).js</Outputs>
+      <Message>Building %(Filename)</Message>
+    </CustomBuild>
+    <None Include="..\Pub_ts\Shared\Widget Interfaces.ts" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Meta\licence_name.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <BRMetaDef Include="..\..\BlackRoot\Meta\.brmeta" />
+  </ItemGroup>
+  <ItemGroup>
+    <BRVersionDef Include="..\..\BlackRoot\Meta\.brversion" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <Import Project="$(SolutionDir)\..\BlackRoot\Visual Studio\BRShared.targets" />
 </Project>
